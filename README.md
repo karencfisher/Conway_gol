@@ -17,6 +17,7 @@ Features to be added at some point in time:
   
   
  https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
+ 
  https://www.ibiblio.org/lifepatterns/october1970.html
 
 In memorial for mathemetician John Conway, the inventor of this game (1938 - April 11, 2020)
