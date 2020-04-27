@@ -8,7 +8,7 @@ I first read of Conways celluar automation game in Marin Gardner's Mathematical 
 At present it plays. One can create/edit an initial pattern with mouse by clicking on squares in the grid. Selecting 'evolove' under the edit menu will allow the colony to evolve. 'Stop' will stop the process, and 'clear' will clear the grid. When a pattern becomes still, the evolution halts automatically. When stopped, the pattern can at any point be edited.
 
 Features that have been added:
-1) Save and load initial patterns to from text files
+1) Save and load initial patterns to from text files (There are a couple of examples of classic patterns.)
 2) Store initial pattern so it can be reverted to
 3) Ability to define different rules. Rules are lists with the numbers of neighboring cells, as in the default rules:
   
