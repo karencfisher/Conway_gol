@@ -106,7 +106,6 @@ class Colony():
              
 
     def evolve(self):
-        # tbd
         changes=[]
         for j in range(0, len(self.Colony)):
             for i in range(0, len(self.Colony[j])):
@@ -171,7 +170,7 @@ class Application(Frame):
         
     def store(self):
         colony = self.colony.get_initial_colony()
-        filename = filedialog.asksaveasfilename(filetypes=[('GOL files', '*.gol'), 
+        filename = asksaveasfilename(filetypes=[('GOL files', '*.gol'), 
                                                     ('Text files', '*.txt')],
                                     defaultextension=[('GOL file', '*.gol')])
         if filename == None:
@@ -185,7 +184,7 @@ class Application(Frame):
     
     def load(self):
         colony = []
-        filename = filedialog.askopenfilename(filetypes=[('GOL files', '*.gol'),                                             ('Text files', '*.txt')])
+        filename = askopenfilename(filetypes=[('GOL files', '*.gol'),                                             ('Text files', '*.txt')])
         if filename == None:
             return
         
@@ -207,7 +206,7 @@ class Application(Frame):
     def editrules(self):
         rules = self.colony.get_rules()
         string = f'{rules[0]}|{rules[1]}'
-        answer = simpledialog.askstring(title='Rules', 
+        answer = askstring(title='Rules', 
             prompt='Number of neighbors allowing a cell to (survive)|(born).', 
                             initialvalue=string)
         if answer == None:
