@@ -173,7 +173,7 @@ class Application(Frame):
         filename = asksaveasfilename(filetypes=[('GOL files', '*.gol'), 
                                                     ('Text files', '*.txt')],
                                     defaultextension=[('GOL file', '*.gol')])
-        if filename == None:
+        if filename == '':
             return
         
         with open(filename, 'w') as filehandle:
@@ -185,7 +185,7 @@ class Application(Frame):
     def load(self):
         colony = []
         filename = askopenfilename(filetypes=[('GOL files', '*.gol'),                                             ('Text files', '*.txt')])
-        if filename == None:
+        if filename == '':
             return
         
         with open(filename, 'r') as filehandle:
@@ -209,6 +209,7 @@ class Application(Frame):
         answer = askstring(title='Rules', 
             prompt='Number of neighbors allowing a cell to (survive)|(born).', 
                             initialvalue=string)
+        print(answer)
         if answer == None:
             return
         
