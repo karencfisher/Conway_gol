@@ -12,8 +12,8 @@ Features that have been added:
 2) Store initial pattern so it can be reverted to
 3) Ability to define different rules. Rules are lists with the numbers of neighboring cells, as in the default rules:
   
-  birth = (3,)      #an empty cell at time T is 'born' for T_2 iff there are three adjacent live cells at T
-  survive = (2, 3)  #a living cell at time T will remain such at T_2 iff it has 2 - 3 live adjacent cells at T
+  birth = (3,)      #an empty cell at time T is 'born' for T+1 iff there are three adjacent live cells at T
+  survive = (2, 3)  #a living cell at time T will remain such at T+1 iff it has 2 - 3 live adjacent cells at T
   
   
  https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
