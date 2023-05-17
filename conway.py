@@ -1,3 +1,4 @@
+import sys
 from tkinter import *
 from tkinter.filedialog import asksaveasfilename, askopenfilename
 from tkinter.simpledialog import askstring
@@ -41,7 +42,8 @@ class Colony():
                 value = self.Colony[j][i]
                 key = str(j) + str(i)
                 rect = self.canvas.create_rectangle(x, y, x + 8, y + 8, \
-                                                    fill=color[value])
+                                                    fill=color[value],
+                                                    outline='lightgray')
                 if value == 1:
                     self.rectangles[key] = rect
                 
@@ -99,7 +101,7 @@ class Colony():
         key = str(y) + str(x)
         if self.rectangles.get(key, None) == None:
             self.rectangles[key] = self.canvas.create_rectangle(i, j, i + 8, \
-                           j + 8, fill=color[value])
+                           j + 8, fill=color[value], outline='')
         else:
             self.canvas.delete(self.rectangles[key])
             self.rectangles.pop(key, 0)
@@ -128,13 +130,13 @@ class Colony():
                 
 class Application(Frame):
 
-    def __init__(self, master=None):
+    def __init__(self, master=None, width=100, height=100):
         Frame.__init__(self, master)
         self.master = master
-        self.init_window()
+        self.init_window(width=width, height=height)
         self.flag = False
 
-    def init_window(self):
+    def init_window(self, width=100, height=100):
 
         self.master.title("Conway's Game of Life")
 
@@ -157,8 +159,8 @@ class Application(Frame):
         edit.add_command(label="Edit rules...", command=self.editrules)
         menu.add_cascade(label='Edit', menu=edit)
 
-        self.width = 100
-        self.height = 100
+        self.width = width
+        self.height = height
 
         self.canvas = Canvas(self, width=self.width * 10 + 2, height=self.height * 10 + 2)
         self.canvas.bind("<Button-1>", self.mouseclick)
@@ -209,7 +211,6 @@ class Application(Frame):
         answer = askstring(title='Rules', 
             prompt='Number of neighbors allowing a cell to (survive)|(born).', 
                             initialvalue=string)
-        print(answer)
         if answer == None:
             return
         
@@ -246,9 +247,13 @@ class Application(Frame):
         self.master.destroy()                    
 
         
-def main():              
+def main():
+    width, height = 100, 100
+    if len(sys.argv) == 3:
+        height = int(sys.argv[1])
+        width = int(sys.argv[2])
     root = Tk()
-    app= Application(root)
+    app= Application(root, height=height, width=width)
     app.mainloop()
 
 
